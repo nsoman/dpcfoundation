@@ -1,0 +1,224 @@
+/* ============================================================
+   Direct Primary Care Foundation — shared stylesheet
+   Faithful recreation of the original directprimarycare.com.
+   Brand palette + Castoro/Montserrat type from the original.
+   ============================================================ */
+:root {
+  --black:      #1e1e1e;
+  --blue-shade: #225372;  /* mission section */
+  --navy:       #002842;  /* "light-blue" in original: text & links */
+  --sky-blue:   #9bd7f9;  /* buttons & section backgrounds */
+  --tertiary:   #e7f6ff;  /* pale blue leadership section */
+  --white:      #f1ebeb;  /* warm off-white */
+
+  --font-heading: 'Castoro', Georgia, 'Times New Roman', serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
+  --container: 81.25rem;  /* 1300px */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+p { margin: 0; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--sky-blue); outline-offset: 3px; border-radius: 4px; }
+
+.container { width: 93%; max-width: var(--container); margin-inline: auto; }
+
+/* ---------------- Buttons ---------------- */
+.button {
+  display: inline-block;
+  background: var(--sky-blue);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: .75rem;
+  padding: .85rem 3.25rem;
+  transition: background-color .25s ease, transform .2s ease;
+}
+.button:hover { background: var(--white); transform: translateY(-2px); }
+.button.is-small { padding: .6rem 1.4rem; }
+
+/* ============================================================ NAV */
+.nav { position: absolute; top: 0; left: 0; right: 0; z-index: 20; }
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; padding-top: 2rem; padding-bottom: 1rem;
+}
+.brand img { width: 168px; height: auto; }
+.nav-menu { display: flex; align-items: center; gap: 2.25rem; }
+.nav-link { color: #fff; font-size: 1rem; font-weight: 500; transition: color .25s ease; }
+.nav-link:hover, .nav-link.current { color: var(--sky-blue); }
+@media (max-width: 600px) {
+  .brand img { width: 132px; }
+  .nav-menu { gap: 1.1rem; }
+  .nav-link { font-size: .9rem; }
+  .nav .button { padding: .55rem 1.1rem; }
+}
+
+/* ============================================================ HERO (shared) */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-position: 72% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+/* Navy scrims: a top band keeps the white logo/nav legible, a left wash
+   keeps the headline legible over the photo. */
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(0,40,66,.72) 0%,
+      rgba(0,40,66,.28) 12%,
+      rgba(0,40,66,0) 24%),
+    linear-gradient(90deg,
+      rgba(0,40,66,.88) 0%,
+      rgba(0,40,66,.66) 40%,
+      rgba(0,40,66,.22) 68%,
+      rgba(0,40,66,0) 100%);
+}
+.hero .container { position: relative; z-index: 2; }
+.hero-wrap { padding-top: 9rem; padding-bottom: 7rem; max-width: 52rem; }
+.hero h1 { color: #fff; font-size: clamp(2.4rem, 6vw, 3.625rem); line-height: 1.18; }
+.hero-desc {
+  color: var(--white);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  max-width: 40rem;
+}
+.hero-wrap .button { margin-top: 2.25rem; }
+
+/* Home hero photo */
+.hero.is-home { background-image: url("images/hero.png"); }
+
+/* About hero photo — shorter subpage hero over a darker image */
+.hero.is-about {
+  background-image: url("images/about-hero.png");
+  min-height: 68vh;
+  background-position: 60% center;
+}
+.hero.is-about::before {
+  background:
+    linear-gradient(180deg, rgba(0,40,66,.60) 0%, rgba(0,40,66,.2) 14%, rgba(0,40,66,0) 26%),
+    linear-gradient(90deg, rgba(0,40,66,.80) 0%, rgba(0,40,66,.55) 45%, rgba(0,40,66,.2) 75%, rgba(0,40,66,0) 100%);
+}
+.hero.is-about .hero-wrap { max-width: 40rem; }
+
+/* ============================================================ MISSION (home) */
+.mission { background: var(--blue-shade); color: #fff; }
+.mission-wrap { padding-block: clamp(3.5rem, 8vw, 6.25rem); }
+.mission-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem); align-items: center;
+}
+.mission h2 { color: #fff; font-size: clamp(2.1rem, 4vw, 3rem); }
+.mission-copy p {
+  color: var(--white);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  margin-top: 1.5rem;
+}
+.mission-copy a.link { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.mission-copy a.link:hover { color: var(--sky-blue); }
+.mission-img-wrap { display: flex; justify-content: center; }
+.mission-img-wrap img { width: 100%; max-width: 460px; height: auto; border-radius: 1rem; }
+@media (max-width: 820px) {
+  .mission-grid { grid-template-columns: 1fr; }
+  .mission-img-wrap { order: -1; }
+  .mission-img-wrap img { max-width: 360px; }
+}
+
+/* ============================================================ WHAT WE DO (home) */
+.wedo { background: var(--sky-blue); }
+.wedo-wrap { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+.wedo-title { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 3.75rem); }
+.wedo-title h2 { color: var(--black); font-size: clamp(2rem, 4vw, 3rem); }
+.wedo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3vw, 2.5rem); }
+.card { display: flex; flex-direction: column; gap: 1.5rem; }
+.card-img {
+  overflow: hidden; border-radius: 1rem; height: 300px;
+  box-shadow: 0 20px 40px -24px rgba(0,40,66,.5);
+}
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card-body { display: flex; flex-direction: column; gap: .75rem; }
+.card-body h3 { color: var(--navy); font-size: clamp(1.6rem, 2.6vw, 2.125rem); }
+.card-body p { color: var(--navy); font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; }
+@media (max-width: 860px) { .wedo-grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
+
+/* ============================================================ ABOUT: Team & Goals */
+.about-goals { background: var(--sky-blue); }
+.about-goals-wrap { padding-block: clamp(3.5rem, 8vw, 6.25rem); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+}
+.about-card { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; padding-inline: clamp(0rem, 3vw, 3.5rem); }
+.about-card h3 { color: var(--navy); font-size: clamp(1.9rem, 3vw, 2.4rem); }
+.about-card p { color: var(--navy); font-size: clamp(1.1rem, 1.9vw, 1.35rem); line-height: 1.5; max-width: 30rem; }
+@media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+/* ============================================================ ABOUT: Leadership */
+.leadership { background: var(--tertiary); }
+.leadership-wrap { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+.leadership-title { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+.leadership-title h2 { color: var(--black); font-size: clamp(2rem, 4vw, 3rem); }
+.leadership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3vw, 3rem); }
+.leader { display: flex; flex-direction: column; gap: 1.25rem; }
+.leader-img {
+  overflow: hidden; border-radius: 1rem; aspect-ratio: 1 / 1;
+  background: #fff; box-shadow: 0 20px 40px -24px rgba(0,40,66,.5);
+}
+.leader-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.leader-body { display: flex; flex-direction: column; gap: .35rem; }
+.leader-body h3 { color: var(--navy); font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+.leader-role { color: var(--blue-shade); font-weight: 600; font-size: .95rem; }
+.leader-desc { color: var(--navy); font-size: 1.02rem; line-height: 1.45; }
+@media (max-width: 860px) { .leadership-grid { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; } }
+
+/* ============================================================ FOOTER */
+.footer { background: #fff; }
+.footer-wrap {
+  padding-block: 3rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  text-align: center;
+}
+.footer-copy { color: var(--blue-shade); font-size: 1rem; }
+.footer-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.75rem; }
+.footer-link { color: var(--navy); font-size: 1rem; transition: color .2s ease; }
+.footer-link:hover { color: var(--blue-shade); }
+
+/* ============================================================ REVEAL */
+.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .button:hover, .mission-img-wrap img { transition: none; }
+}
