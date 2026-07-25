@@ -62,14 +62,35 @@ a { color: inherit; text-decoration: none; }
 .button.is-small { padding: .6rem 1.4rem; }
 
 /* ============================================================ NAV */
-.nav { position: absolute; top: 0; left: 0; right: 0; z-index: 20; }
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  transition: background-color .3s ease, box-shadow .3s ease;
+}
+/* Solid navy bar appears once you scroll past the hero */
+.nav.scrolled {
+  background: rgba(0, 40, 66, 0.94);
+  backdrop-filter: saturate(1.3) blur(8px);
+  -webkit-backdrop-filter: saturate(1.3) blur(8px);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.7);
+}
 .nav-inner {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1.5rem; padding-top: 2rem; padding-bottom: 1rem;
+  transition: padding .3s ease;
 }
-.brand img { width: 168px; height: auto; }
+.nav.scrolled .nav-inner { padding-top: 1rem; padding-bottom: 1rem; }
+.brand img { width: 168px; height: auto; transition: width .3s ease; }
+.nav.scrolled .brand img { width: 146px; }
 .nav-menu { display: flex; align-items: center; gap: 2.25rem; }
-.nav-link { color: #fff; font-size: 1rem; font-weight: 500; transition: color .25s ease; }
+.nav-link {
+  position: relative; color: #fff; font-size: 1rem; font-weight: 500;
+  transition: color .25s ease;
+}
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 100%; bottom: -5px;
+  height: 2px; background: var(--sky-blue); transition: right .28s ease;
+}
+.nav-link:hover::after, .nav-link.current::after { right: 0; }
 .nav-link:hover, .nav-link.current { color: var(--sky-blue); }
 @media (max-width: 600px) {
   .brand img { width: 132px; }
@@ -117,6 +138,20 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-wrap .button { margin-top: 2.25rem; }
 
+/* Animated scroll cue at the bottom of the hero */
+.hero::after {
+  content: ""; position: absolute; left: 50%; bottom: 28px; z-index: 2;
+  width: 20px; height: 20px; margin-left: -10px; pointer-events: none;
+  border-right: 2px solid rgba(255,255,255,.75);
+  border-bottom: 2px solid rgba(255,255,255,.75);
+  transform: rotate(45deg);
+  animation: heroCue 1.9s ease-in-out infinite;
+}
+@keyframes heroCue {
+  0%, 100% { bottom: 30px; opacity: .5; }
+  50%      { bottom: 20px; opacity: 1; }
+}
+
 /* Home hero photo */
 .hero.is-home { background-image: url("images/hero.png"); }
 
@@ -163,12 +198,16 @@ a { color: inherit; text-decoration: none; }
 .wedo-title { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 3.75rem); }
 .wedo-title h2 { color: var(--black); font-size: clamp(2rem, 4vw, 3rem); }
 .wedo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3vw, 2.5rem); }
-.card { display: flex; flex-direction: column; gap: 1.5rem; }
+.card { display: flex; flex-direction: column; gap: 1.5rem; transition: transform .3s ease; }
+.card:hover { transform: translateY(-6px); }
 .card-img {
   overflow: hidden; border-radius: 1rem; height: 300px;
   box-shadow: 0 20px 40px -24px rgba(0,40,66,.5);
+  transition: box-shadow .3s ease;
 }
-.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card:hover .card-img { box-shadow: 0 30px 55px -26px rgba(0,40,66,.65); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.card:hover .card-img img { transform: scale(1.06); }
 .card-body { display: flex; flex-direction: column; gap: .75rem; }
 .card-body h3 { color: var(--navy); font-size: clamp(1.6rem, 2.6vw, 2.125rem); }
 .card-body p { color: var(--navy); font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.45; }
@@ -192,12 +231,16 @@ a { color: inherit; text-decoration: none; }
 .leadership-title { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
 .leadership-title h2 { color: var(--black); font-size: clamp(2rem, 4vw, 3rem); }
 .leadership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 3vw, 3rem); }
-.leader { display: flex; flex-direction: column; gap: 1.25rem; }
+.leader { display: flex; flex-direction: column; gap: 1.25rem; transition: transform .3s ease; }
+.leader:hover { transform: translateY(-6px); }
 .leader-img {
   overflow: hidden; border-radius: 1rem; aspect-ratio: 1 / 1;
   background: #fff; box-shadow: 0 20px 40px -24px rgba(0,40,66,.5);
+  transition: box-shadow .3s ease;
 }
-.leader-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.leader:hover .leader-img { box-shadow: 0 30px 55px -26px rgba(0,40,66,.6); }
+.leader-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.leader:hover .leader-img img { transform: scale(1.05); }
 .leader-body { display: flex; flex-direction: column; gap: .35rem; }
 .leader-body h3 { color: var(--navy); font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
 .leader-role { color: var(--blue-shade); font-weight: 600; font-size: .95rem; }
@@ -219,7 +262,14 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================ REVEAL */
 .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
 .js .reveal.in { opacity: 1; transform: none; }
+/* Cards/leaders animate their entrance too, but need a snappy transform for
+   the hover lift — override the slower reveal timing at higher specificity. */
+.js .card.reveal, .js .leader.reveal { transition: opacity .7s ease, transform .4s cubic-bezier(.2,.7,.2,1); }
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .button:hover, .mission-img-wrap img { transition: none; }
+  .hero::after { animation: none; }
+  .card, .leader, .card-img img, .leader-img img { transition: none; }
+  .card:hover, .leader:hover { transform: none; }
+  .card:hover .card-img img, .leader:hover .leader-img img { transform: none; }
 }

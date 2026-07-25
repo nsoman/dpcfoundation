@@ -5,6 +5,18 @@ Array.prototype.forEach.call(document.querySelectorAll('.year'), function (el) {
   el.textContent = new Date().getFullYear();
 });
 
+// Scroll-aware nav: solid navy bar appears once past the hero top
+(function () {
+  var nav = document.querySelector('.nav');
+  if (!nav) return;
+  var onScroll = function () {
+    if (window.pageYOffset > 40) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
 // Gentle scroll reveal (matches the original's fade-in feel)
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
