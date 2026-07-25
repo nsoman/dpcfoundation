@@ -1,0 +1,34 @@
+<!-- @dsCard group="Foundations" name="Typography" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#002842;--muted:#5b6b73;--fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);color:var(--navy);background:#fff;padding:32px}
+  .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:700}
+  .row{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid #eef2f0}
+  .tag{width:120px;flex:none;font-size:11px;color:#8a979d;text-transform:uppercase;letter-spacing:.08em}
+  .h-serif{font-family:var(--fh);font-style:italic;font-weight:400;line-height:1.1}
+  .d1{font-size:58px}.d2{font-size:44px}.d3{font-size:32px}
+  .body{font-family:var(--fb)}
+  .lg{font-size:24px}.base{font-size:17px;line-height:1.6}.sm{font-size:14px;color:var(--muted)}
+  h1{font-family:var(--fh);font-style:italic;font-weight:400;font-size:28px;margin:0 0 20px}
+</style>
+</head>
+<body>
+  <h1>Typography</h1>
+  <div class="eyebrow" style="margin-bottom:10px">Display — Castoro Italic</div>
+  <div class="row"><div class="tag">H1 / 58</div><div class="h-serif d1">Future of Health</div></div>
+  <div class="row"><div class="tag">H2 / 44</div><div class="h-serif d2">Mission</div></div>
+  <div class="row"><div class="tag">H3 / 32</div><div class="h-serif d3">Our Leadership</div></div>
+  <div class="eyebrow" style="margin:26px 0 10px">Body — Montserrat</div>
+  <div class="row"><div class="tag">Lead / 24</div><div class="body lg">Supporting the growth and success of DPC.</div></div>
+  <div class="row"><div class="tag">Body / 17</div><div class="body base">We are a 501(c)(3) nonprofit supporting the growth and success of the DPC movement.</div></div>
+  <div class="row"><div class="tag">Small / 14</div><div class="body sm">©2026 DirectPrimaryCare.com</div></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- @dsCard group="Components" name="Leadership card" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#002842;--blue-shade:#225372;--pale:#e7f6ff;--fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);background:var(--pale);padding:32px;color:var(--navy)}
+  h1.t{font-family:var(--fh);font-style:italic;font-weight:400;font-size:24px;margin:0 0 20px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .leader{display:flex;flex-direction:column;gap:14px}
+  .ph{aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,#cfe6f6,#eef7fc);box-shadow:0 18px 36px -24px rgba(0,40,66,.5);display:flex;align-items:center;justify-content:center;font-size:44px}
+  .leader h3{font-family:var(--fh);font-style:italic;font-weight:400;font-size:24px;margin:0}
+  .role{color:var(--blue-shade);font-weight:700;font-size:13px}
+  .desc{font-size:15px;line-height:1.45}
+</style>
+</head>
+<body>
+  <h1 class="t">Leadership cards</h1>
+  <div class="grid">
+    <div class="leader"><div class="ph">👤</div><h3>Ben Aiken, MD</h3><div class="role">Board member</div><div class="desc">DPC Founder &amp; CEO at Lantern Health; Head of DPC at Decent</div></div>
+    <div class="leader"><div class="ph">👤</div><h3>Rachel Kim</h3><div class="role">Board member</div><div class="desc">Founder at Manifest Advisors</div></div>
+    <div class="leader"><div class="ph">👤</div><h3>Nick Soman</h3><div class="role">Board member</div><div class="desc">Founder &amp; CEO at Decent</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- @dsCard group="Components" name="Mission block" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#002842;--blue-shade:#225372;--sky:#9bd7f9;--offwhite:#f1ebeb;--fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);background:#fff;padding:32px;color:var(--navy)}
+  h1.t{font-family:var(--fh);font-style:italic;font-weight:400;font-size:24px;margin:0 0 16px}
+  .block{background:var(--blue-shade);border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 200px;gap:32px;align-items:center}
+  .block h2{font-family:var(--fh);font-style:italic;font-weight:400;color:#fff;font-size:38px;margin:0}
+  .block p{color:var(--offwhite);font-size:18px;line-height:1.5;margin:16px 0 0}
+  .block a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+  .img{aspect-ratio:5/6;border-radius:12px;background:linear-gradient(135deg,#d9eef8,#eaf6fb);display:flex;align-items:center;justify-content:center;font-size:44px}
+</style>
+</head>
+<body>
+  <h1 class="t">Mission block</h1>
+  <div class="block">
+    <div>
+      <h2>Mission</h2>
+      <p>We are a 501(c)(3) nonprofit supporting the growth and success of the DPC movement. Learn more about our team and goals <a>here</a>.</p>
+    </div>
+    <div class="img">🩺</div>
+  </div>
+</body>
+</html>

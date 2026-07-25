@@ -1,0 +1,29 @@
+<!-- @dsCard group="Components" name="What-we-do card" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#002842;--sky:#9bd7f9;--fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);background:var(--sky);padding:32px;color:var(--navy)}
+  h1.t{font-family:var(--fh);font-style:italic;font-weight:400;font-size:24px;margin:0 0 20px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{display:flex;flex-direction:column;gap:16px}
+  .ph{height:150px;border-radius:14px;background:linear-gradient(135deg,#0a2f49,#2a6f9c);box-shadow:0 18px 36px -22px rgba(0,40,66,.6);display:flex;align-items:center;justify-content:center;font-size:40px}
+  .card h3{font-family:var(--fh);font-style:italic;font-weight:400;font-size:28px;margin:0;color:var(--navy)}
+  .card p{margin:0;font-size:16px;line-height:1.45}
+</style>
+</head>
+<body>
+  <h1 class="t">"What we do" cards</h1>
+  <div class="grid">
+    <div class="card"><div class="ph">🔬</div><h3>Research</h3><p>We conduct and share research related to DPC.</p></div>
+    <div class="card"><div class="ph">🎓</div><h3>Education</h3><p>We help the world learn about and access DPC.</p></div>
+    <div class="card"><div class="ph">🤝</div><h3>Direct Support</h3><p>We provide financial and growth support for DPC.</p></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- @dsCard group="Components" name="Navigation bar" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@1&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#002842;--sky:#9bd7f9;--black:#1e1e1e;--muted:#5b6b73;--fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);background:#fff;padding:32px;color:var(--navy)}
+  h1{font-family:var(--fh);font-style:italic;font-weight:400;font-size:24px;margin:0 0 16px}
+  .bar{background:linear-gradient(180deg,#00243c,#003a5c);border-radius:14px;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .dpcf{font-family:var(--fb);font-weight:800;font-size:26px;letter-spacing:.02em;color:#fff}
+  .brand .full{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#cfe6f6;margin-top:3px;font-weight:600}
+  .menu{display:flex;align-items:center;gap:26px}
+  .link{color:#fff;font-size:15px;font-weight:500}
+  .link.current{color:var(--sky)}
+  .btn{display:inline-block;background:var(--sky);color:var(--black);font-weight:600;border-radius:.75rem;padding:.6rem 1.4rem;white-space:nowrap;font-size:.9rem}
+</style>
+</head>
+<body>
+  <h1>Navigation bar</h1>
+  <div class="bar">
+    <div class="brand"><span class="dpcf">DPCF</span><span class="full">Direct Primary Care Foundation</span></div>
+    <div class="menu"><a class="link current">Home</a><a class="link">About</a><a class="btn">Contact Us</a></div>
+  </div>
+</body>
+</html>

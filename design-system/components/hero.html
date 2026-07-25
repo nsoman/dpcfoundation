@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" name="Hero" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#002842;--sky:#9bd7f9;--offwhite:#f1ebeb;--black:#1e1e1e;--fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);background:#fff;padding:32px;color:var(--navy)}
+  h1.t{font-family:var(--fh);font-style:italic;font-weight:400;font-size:24px;margin:0 0 16px}
+  .hero{position:relative;border-radius:16px;overflow:hidden;min-height:340px;display:flex;align-items:center;
+    background:linear-gradient(120deg,#0a2f49,#1a5f86);}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,40,66,.88),rgba(0,40,66,.4) 60%,rgba(0,40,66,0));}
+  .inner{position:relative;padding:40px;max-width:560px}
+  .hero h2{font-family:var(--fh);font-style:italic;font-weight:400;color:#fff;font-size:44px;line-height:1.12;margin:0}
+  .hero p{color:var(--offwhite);font-size:19px;margin:18px 0 24px;max-width:420px}
+  .btn{display:inline-block;background:var(--sky);color:var(--black);font-weight:600;border-radius:.75rem;padding:.85rem 2.6rem;white-space:nowrap;font-size:.95rem}
+  .note{position:absolute;top:20px;left:40px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#cfe6f6;font-weight:700}
+</style>
+</head>
+<body>
+  <h1 class="t">Hero</h1>
+  <div class="hero">
+    <div class="note">Navy scrim over photo keeps text legible</div>
+    <div class="inner">
+      <h2>Direct Primary Care is the Future of Health</h2>
+      <p>Supporting the growth and success of DPC for a healthier tomorrow</p>
+      <a class="btn">Contact Us</a>
+    </div>
+  </div>
+</body>
+</html>

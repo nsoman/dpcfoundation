@@ -1,0 +1,39 @@
+<!-- @dsCard group="Foundations" name="Color palette" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@1&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#002842;--blue-shade:#225372;--sky:#9bd7f9;--pale:#e7f6ff;--offwhite:#f1ebeb;--black:#1e1e1e;
+    --fh:'Castoro',Georgia,serif;--fb:'Montserrat',system-ui,-apple-system,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--fb);color:var(--navy);background:#fff;padding:32px}
+  h1{font-family:var(--fh);font-style:italic;font-weight:400;font-size:28px;margin:0 0 4px}
+  .sub{color:#5b6b73;font-size:13px;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .sw{border:1px solid #e6ebe8;border-radius:12px;overflow:hidden}
+  .chip{height:86px}
+  .meta{padding:10px 12px}
+  .nm{font-weight:600;font-size:13px}
+  .hex{font-size:12px;color:#5b6b73;font-variant-numeric:tabular-nums;text-transform:uppercase}
+  .role{font-size:11px;color:#8a979d;margin-top:2px}
+</style>
+</head>
+<body>
+  <h1>Color palette</h1>
+  <div class="sub">Direct Primary Care Foundation — brand colors</div>
+  <div class="grid">
+    <div class="sw"><div class="chip" style="background:#002842"></div><div class="meta"><div class="nm">Navy</div><div class="hex">#002842</div><div class="role">Text, links, hero ground</div></div></div>
+    <div class="sw"><div class="chip" style="background:#225372"></div><div class="meta"><div class="nm">Blue Shade</div><div class="hex">#225372</div><div class="role">Mission section</div></div></div>
+    <div class="sw"><div class="chip" style="background:#9bd7f9"></div><div class="meta"><div class="nm">Sky Blue</div><div class="hex">#9bd7f9</div><div class="role">Buttons, "What we do"</div></div></div>
+    <div class="sw"><div class="chip" style="background:#e7f6ff"></div><div class="meta"><div class="nm">Pale Blue</div><div class="hex">#E7F6FF</div><div class="role">Leadership section</div></div></div>
+    <div class="sw"><div class="chip" style="background:#f1ebeb"></div><div class="meta"><div class="nm">Off-white</div><div class="hex">#F1EBEB</div><div class="role">Text on dark</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1e1e1e"></div><div class="meta"><div class="nm">Near-black</div><div class="hex">#1E1E1E</div><div class="role">Button label, headings</div></div></div>
+  </div>
+</body>
+</html>
