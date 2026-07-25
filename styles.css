@@ -44,6 +44,18 @@ a { color: inherit; text-decoration: none; }
 
 .container { width: 93%; max-width: var(--container); margin-inline: auto; }
 
+/* ---------------- Section eyebrow (small label above a heading) ---------------- */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .65rem;
+  font-family: var(--font-body); font-size: .75rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--blue-shade); margin-bottom: 1rem;
+}
+.eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; opacity: .8; }
+.eyebrow.center { justify-content: center; }
+/* On the dark mission ground, the eyebrow switches to sky blue */
+.mission .eyebrow { color: var(--sky-blue); }
+
 /* ---------------- Buttons ---------------- */
 .button {
   display: inline-block;
@@ -216,6 +228,8 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================ ABOUT: Team & Goals */
 .about-goals { background: var(--sky-blue); }
 .about-goals-wrap { padding-block: clamp(3.5rem, 8vw, 6.25rem); }
+.about-intro { text-align: center; max-width: 44rem; margin: 0 auto clamp(2.5rem, 5vw, 3.5rem); }
+.about-intro h2 { color: var(--navy); font-size: clamp(2rem, 4vw, 2.8rem); }
 .about-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: clamp(2.5rem, 5vw, 4.5rem);
@@ -248,16 +262,37 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 860px) { .leadership-grid { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; } }
 
 /* ============================================================ FOOTER */
-.footer { background: #fff; }
-.footer-wrap {
-  padding-block: 3rem;
-  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
-  text-align: center;
+.footer { background: var(--navy); color: #fff; }
+.footer-wrap { padding-block: clamp(3rem, 6vw, 4.5rem) 2.25rem; }
+.footer-top {
+  display: grid; grid-template-columns: 1.7fr 1fr 1fr; gap: 2.5rem;
+  align-items: start;
 }
-.footer-copy { color: var(--blue-shade); font-size: 1rem; }
-.footer-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.75rem; }
-.footer-link { color: var(--navy); font-size: 1rem; transition: color .2s ease; }
-.footer-link:hover { color: var(--blue-shade); }
+.footer-logo { width: 176px; height: auto; }
+.footer-brand p {
+  color: rgba(241, 235, 235, 0.75); font-size: 1rem; line-height: 1.55;
+  margin-top: 1.1rem; max-width: 34ch;
+}
+.footer-col h4 {
+  font-family: var(--font-body); font-style: normal; font-size: .74rem;
+  letter-spacing: .16em; text-transform: uppercase; font-weight: 700;
+  color: var(--sky-blue); margin: 0 0 1.1rem;
+}
+.footer-col a {
+  display: block; color: rgba(255, 255, 255, 0.85); font-size: .98rem;
+  margin-bottom: .8rem; transition: color .2s ease;
+}
+.footer-col a:hover { color: var(--sky-blue); }
+.footer-bottom {
+  margin-top: clamp(2.25rem, 4vw, 3rem); padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem;
+  color: rgba(241, 235, 235, 0.6); font-size: .88rem;
+}
+@media (max-width: 720px) {
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; }
+}
 
 /* ============================================================ REVEAL */
 .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
