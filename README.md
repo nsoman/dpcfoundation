@@ -12,7 +12,7 @@ about.html      About page (Team, Goals, Leadership)
 styles.css      Shared stylesheet
 site.js         Shared behavior (footer year, scroll reveal)
 images/         Original images + team headshots, saved locally
-CNAME           Custom domain for GitHub Pages (dpcfoundation.org)
+CNAME           Custom domain for GitHub Pages (directprimarycare.com)
 ```
 
 ## Pages & content (recovered from the Wayback Machine)
@@ -61,11 +61,17 @@ python3 -m http.server 8777
 
 ## Deploy (GitHub Pages)
 
-The repo is set up to publish to **dpcfoundation.org** via the `CNAME` file. After
-pushing to GitHub and enabling Pages on the default branch, point DNS at GitHub:
+The repo publishes to **directprimarycare.com** via the `CNAME` file. DNS for that
+domain lives in **Cloudflare**; point it at GitHub Pages:
 
-- Four `A` records for the apex `dpcfoundation.org` →
+- Four `A` records for the apex `directprimarycare.com` →
   `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- (Optional) `CNAME` for `www` → `<user>.github.io`
+- `CNAME` for `www` → `nsoman.github.io`
+- Set all of the above to **DNS only** (grey cloud). Cloudflare's proxy blocks
+  GitHub's Let's Encrypt cert issuance; re-enable the orange cloud afterward if
+  desired, with SSL mode set to Full.
 
-DNS is changed at your domain registrar and must be done by you.
+Leave the `MX` and SPF `TXT` records alone — they run Cloudflare Email Routing for
+`hello@directprimarycare.com` and are independent of the web records.
+
+**dpcfoundation.org** (registrar: GoDaddy) is kept as a 301 redirect to the apex.
